@@ -1,0 +1,78 @@
+#game {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.unsolved {
+  margin-bottom: 25px;
+  justify-content: space-between;
+}
+
+.solved {
+  margin-right: 25px;
+}
+
+.pair_items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-bottom: 25px;
+  padding: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.item {
+  margin-right: 10px;
+}
+
+.pair {
+  margin-bottom: 25px;
+}
+
+.connector {
+  height: 5px;
+  background-color: lightgreen;
+}
+
+@media screen and (min-width: 600px) {
+  #game {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .container {
+    flex-direction: row;
+  }
+
+  .solved {
+    margin-right: 10px;
+  }
+
+  .pair_items {
+    width: 30%;
+    flex-direction: column;
+  }
+
+  .item {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 126px;
+    height: 30px;
+  }
+
+  .pair {
+    margin-right: 25px;
+  }
+}
+.selected {
+  font-weight: bold;
+  background-color: green;
+}

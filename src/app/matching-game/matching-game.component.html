@@ -1,0 +1,37 @@
+<div id="game">
+  <div class="container unsolved" *ngIf="unsolvedPairLeft.length > 0">
+    <div class="pair_items left">
+      <button
+        #left
+        *ngFor="let pair of unsolvedPairLeft"
+        class="item"
+        (mousedown)="leftPartSelectedId = pair.id"
+        [class.selected]="leftPartSelectedId === pair.id"
+        (click)="assignmentStream.next({ pair: pair, side: 'left' })"
+      >
+        {{ pair.leftpart }}
+      </button>
+    </div>
+    <div class="pair_items right">
+      <button
+        #right
+        *ngFor="let pair of unsolvedPairRight"
+        class="item"
+        (mousedown)="rightPartSelectedId = pair.id"
+        [class.selected]="rightPartSelectedId === pair.id"
+        (click)="assignmentStream.next({ pair: pair, side: 'right' })"
+        (drop)="onDrop($event)"
+        (dragover)="onDrop($event)"
+      >
+        {{ pair.rightpart }}
+      </button>
+    </div>
+  </div>
+  <div class="container solved" *ngIf="solvedPair.length > 0">
+    <div *ngFor="let pair of solvedPair" class="pair">
+      <button>{{ pair.leftpart }}</button>
+      <div class="connector"></div>
+      <button>{{ pair.rightpart }}</button>
+    </div>
+  </div>
+</div>
